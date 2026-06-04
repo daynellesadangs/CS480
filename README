@@ -1,0 +1,55 @@
+CS 480 Programming Assignment #1
+
+Team Members:
+Name: Your Name
+Class Account: cssc3154
+
+Name: Partner Name
+Class Account: csscXXXX
+
+Account Used for Testing:
+cssc3154
+
+Files Included:
+bots.cpp
+bots.h
+Makefile
+README
+
+Program Description:
+This program creates seven POSIX threads. Each thread acts as a chat bot
+that writes a quote to a shared file named QUOTE.txt. The program uses a
+POSIX semaphore named FLAG to control access to the shared file so that
+only one thread writes to the file at a time.
+
+When the program starts, it creates QUOTE.txt and writes the process ID
+to the file. Then it creates seven threads. Even-numbered threads write
+the Brian Kernighan quote every two seconds, and odd-numbered threads
+write the Edsger Dijkstra quote every three seconds. Each thread writes
+to the file eight total times.
+
+Build Instructions:
+To compile the program, run:
+
+make
+
+Run Instructions:
+To run the program, run:
+
+./bots
+
+Output:
+The program creates a file named QUOTE.txt in the current directory.
+QUOTE.txt begins with the process ID of the running program, followed by
+the thread IDs and assigned quotes written by the seven threads.
+
+Clean Instructions:
+To remove object files, the executable, and QUOTE.txt, run:
+
+make clean
+
+Notes:
+The executable is named bots.
+The program uses pthread_create(), pthread_join(), sem_init(),
+sem_wait(), sem_post(), and sem_destroy().
+The system() function is not used.
