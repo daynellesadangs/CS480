@@ -1,3 +1,15 @@
+/**********************************************************************
+* Course: CS 480-01, Summer 2026
+* Instructor: Guy Leonard
+* Assignment Information: Programming Assignment #1, Thread Manager
+
+* Team Members:
+* - Daynelle Lorin Sadangsal (cssc3154)
+* - Sophia Phung (cssc3147)
+
+* FileName: bots
+***********************************************************************/
+
 #include <iostream>
 #include <fstream>
 #include <unistd.h>
