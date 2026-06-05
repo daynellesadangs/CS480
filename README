@@ -6,6 +6,8 @@ Team Members:
 - Daynelle Lorin Sadangsal (cssc3154)
 - Sophia Phung (cssc3147)
 
+Edoras Account Used: cssc3154
+
 FileName: README
 
 List of all Project Files Included:
@@ -15,20 +17,18 @@ Makefile
 README
 
 Compile instructions:
-
 To compile manually, run: g++ -Wall -pthread -o bots bots.cpp
 or, use Makefile:
     - In terminal, cd to directory containing Makefile, in this case, a1: cd ~/a1
-    - Run Makefile: make
+    - To clean Makefile, run: make clean
+    - To run Makefile, run: make
 
-Operating instructions: (include any/all command line options/arguments, required inputs, etc)
-
-Ensure you are in the directory containing all of your files, in this case, a1
-To run program, run: ./bots
-To check your output, run: cat QUOTE.txt
+Operating instructions:
+- Ensure you are in the directory containing all of your files, in this case, a1
+- To run program, run: ./bots
+- To check your output, run: cat QUOTE.txt
 
 List/description of novel/significant design decisions:
-
 - C++ file for main functions of program
 - Header file to assign NUM_THREADS, NUM_RUNS and declare semaphore FLAG
 - Makefile to compile program
@@ -37,16 +37,12 @@ List/description of novel/significant design decisions:
 - Using the Process ID and Thread IDs we can ensure multiple threads run inside the same process.
 - Sleep times of 2 for even and 3 for odd-numbered threads allows OS scheduler to decide which thread runs next.
 
-List/description of any extra features/algorithms/functionality you included which were not
-required:
+Description of any extra features/algorithms/functionality you included which were not required:
+No additional features were included
 
-- No additional features were included
-
-List/description of all known deficiencies or bugs:
-
-- There were issues transferring the files into our Edoras account to test them, however, it was resolved by clearing the cache space
+Description of all known deficiencies or bugs:
+There were issues transferring the files into our Edoras account to test them, however, it was resolved by clearing the cache space
 
 Lessons Learned:
-
 Through this project, we learned how to manage thread processes to work simultaneously but asynchronously with each other to perform a certain task, which in this case to write a certain quote to even-numbered threads and another quote to odd-numbered threads.
 We further delved into the synchronization process of operating systems by learning how to use standard Linux thread APIS while using semaphores to prevent race conditions and exhibit mutual exclusion.
