@@ -1,55 +1,31 @@
-CS 480 Programming Assignment #1
+Course: CS 480-01, Summer 2026
+Instructor: Guy Leonard
+Project: Programming Assignment #1
 
-Team Members:
-Name: Your Name
-Class Account: cssc3154
+Team Members: 
+- Daynelle Lorin Sadangsal(cssc3154)
+- Sophia Phung(cssc....)
 
-Name: Partner Name
-Class Account: csscXXXX
+Account Used for Testing: cssc....
 
-Account Used for Testing:
-cssc3154
+FileName: README
 
-Files Included:
+List of all Project Files Included:
 bots.cpp
 bots.h
 Makefile
 README
 
-Program Description:
-This program creates seven POSIX threads. Each thread acts as a chat bot
-that writes a quote to a shared file named QUOTE.txt. The program uses a
-POSIX semaphore named FLAG to control access to the shared file so that
-only one thread writes to the file at a time.
+Compile instructions:
 
-When the program starts, it creates QUOTE.txt and writes the process ID
-to the file. Then it creates seven threads. Even-numbered threads write
-the Brian Kernighan quote every two seconds, and odd-numbered threads
-write the Edsger Dijkstra quote every three seconds. Each thread writes
-to the file eight total times.
+Operating instructions: (include any/all command line options/arguments, required inputs, etc)
 
-Build Instructions:
-To compile the program, run:
+List/description of novel/significant design decisions:
 
-make
+List/description of any extra features/algorithms/functionality you included which were not
+required:
 
-Run Instructions:
-To run the program, run:
+List/description of all known deficiencies or bugs:
 
-./bots
+Lessons Learned:
 
-Output:
-The program creates a file named QUOTE.txt in the current directory.
-QUOTE.txt begins with the process ID of the running program, followed by
-the thread IDs and assigned quotes written by the seven threads.
-
-Clean Instructions:
-To remove object files, the executable, and QUOTE.txt, run:
-
-make clean
-
-Notes:
-The executable is named bots.
-The program uses pthread_create(), pthread_join(), sem_init(),
-sem_wait(), sem_post(), and sem_destroy().
-The system() function is not used.
