@@ -7,19 +7,8 @@
 
 using namespace std;
 
-// Global semaphore shared by all seven threads.
 sem_t FLAG;
 
-/*
- * botRunner
- *
- * Each thread sleeps based on whether its assigned number is even or odd.
- * Even-numbered threads sleep for 2 seconds.
- * Odd-numbered threads sleep for 3 seconds.
- *
- * The semaphore FLAG protects the shared file QUOTE.txt so that only one
- * thread writes to the file at a time.
- */
 void* botRunner(void* arg)
 {
     int threadNum = *static_cast<int*>(arg);
@@ -49,14 +38,14 @@ void* botRunner(void* arg)
 
         if (threadNum % 2 == 0)
         {
-            quoteFile << "Thread ID" << threadNum
-                      << " \": Controlling complexity is the essence of computer programming.\"\r\n"
+            quoteFile << "Thread ID " << threadNum
+                      << ": \"Controlling complexity is the essence of computer programming.\"\r\n"
                       << " --Brian Kernighan\r\n";
         }
         else
         {
-            quoteFile << "Thread ID" << threadNum
-                      << " \": Computer science is no more about computers than astronomy is about telescopes.\"\r\n"
+            quoteFile << "Thread ID " << threadNum
+                      << ": \"Computer science is no more about computers than astronomy is about telescopes.\"\r\n"
                       << " --Edsger Dijkstra\r\n";
         }
 
@@ -83,7 +72,7 @@ int main()
         return 1;
     }
 
-    quoteFile << getpid() << "\r\n";
+    quoteFile << "Process ID: " << getpid() << "\r\n";
     quoteFile.close();
 
     if (sem_init(&FLAG, 0, 1) != 0)
@@ -94,11 +83,13 @@ int main()
 
     for (int i = 0; i < NUM_THREADS; i++)
     {
-        threadNums[i] = i;
+        threadNums[i] = i + 1;
+
+        cout << "Creating thread, in main(): " << threadNums[i] << endl;
 
         if (pthread_create(&threads[i], nullptr, botRunner, &threadNums[i]) != 0)
         {
-            cerr << "Error creating thread " << i << endl;
+            cerr << "Error creating thread " << threadNums[i] << endl;
             sem_destroy(&FLAG);
             return 1;
         }
