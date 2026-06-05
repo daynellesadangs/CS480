@@ -49,18 +49,18 @@ void* botRunner(void* arg)
 
         if (threadNum % 2 == 0)
         {
-            quoteFile << pthread_self()
-                      << " \"Controlling complexity is the essence of computer programming.\"\r\n"
+            quoteFile << "Thread ID" << threadNum
+                      << " \": Controlling complexity is the essence of computer programming.\"\r\n"
                       << " --Brian Kernighan\r\n";
         }
         else
         {
-            quoteFile << pthread_self()
-                      << " \"Computer science is no more about computers than astronomy is about telescopes.\"\r\n"
+            quoteFile << "Thread ID" << threadNum
+                      << " \": Computer science is no more about computers than astronomy is about telescopes.\"\r\n"
                       << " --Edsger Dijkstra\r\n";
         }
 
-        cout << "Thread " << pthread_self() << " is running" << endl;
+        cout << "Thread " << threadNum << " is running" << endl;
 
         quoteFile.close();
 

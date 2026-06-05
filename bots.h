@@ -1,7 +1,6 @@
 #ifndef BOTS_H
 #define BOTS_H
 
-#include <pthread.h>
 #include <semaphore.h>
 
 constexpr int NUM_THREADS = 7;
