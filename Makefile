@@ -7,6 +7,7 @@
 # - Sophia Phung (cssc3147)
 
 # FileName: Makefile
+# Makefile to compile program
 
 CC = g++
 CFLAGS = -Wall -g -pthread

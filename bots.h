@@ -8,6 +8,7 @@
 * - Sophia Phung (cssc3147)
 
 * FileName: bots.h
+* Header file to assign NUM_THREADS, NUM_RUNS, declare semaphore FLAG, and botRunner method. Acts as abstract.
 ***********************************************************************/
 
 #ifndef BOTS_H

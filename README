@@ -30,7 +30,7 @@ Operating instructions:
 
 List/description of novel/significant design decisions:
 - C++ file for main functions of program
-- Header file to assign NUM_THREADS, NUM_RUNS and declare semaphore FLAG
+- Header file to assign NUM_THREADS, NUM_RUNS, declare semaphore FLAG, and botRunner method. Acts as abstract.
 - Makefile to compile program
 - README to instruct use of program
 - The use of a semaphore FLAG acts like a lock to prevent race conditions and ensure only one thread can enter the shared resource at a time.
