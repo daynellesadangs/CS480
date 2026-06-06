@@ -10,14 +10,13 @@
 
 CC = g++
 CFLAGS = -Wall -g -pthread
-TARGET = bots
-OBJS = bots.o
+OBJ = bots.o
 
-$(TARGET): $(OBJS)
-	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS)
+bots: $(OBJ)
+	$(CC) $(CFLAGS) -o $@ $^
 
 bots.o: bots.cpp bots.h
-	$(CC) $(CFLAGS) -c bots.cpp
+	$(CC) $(CFLAGS) -c $<
 
 clean:
-	rm -f *.o $(TARGET) QUOTE.txt
+	rm -f *.o bots QUOTE.txt

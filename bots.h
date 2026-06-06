@@ -7,7 +7,7 @@
 * - Daynelle Lorin Sadangsal (cssc3154)
 * - Sophia Phung (cssc3147)
 
-* FileName: bots
+* FileName: bots.h
 ***********************************************************************/
 
 #ifndef BOTS_H
