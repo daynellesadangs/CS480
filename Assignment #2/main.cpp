@@ -10,8 +10,33 @@
 * FileName: main.cpp
 ***********************************************************************/
 
-
 #include <iostream>
+#include <string>
+#include "xsh.h"
 
-int main() {
+int main(){
+    std::string userInput;
+
+    while (std::cout << getPrompt() && std::getline(std::cin, userInput)){
+        ParsedCommand command = parseInput(userInput);
+
+        if (command.isExit){
+            std::cout << "Exiting XSH. Goodbye!" << std::endl;
+            return 0;
+        }
+        if (!command.isValid){
+            std::cerr << "Invalid command or input format." << std::endl;
+        }
+        else if (command.hasPipe){
+            executePipeCommands(command.commands);
+        }
+        else{
+            executeSingleCommand(command.commands[0]);
+        }
+    }
+
+    std::cout << std::endl;
+    return 0;
 }
+
+/************************[ EOF: main.cpp ]***************************/
