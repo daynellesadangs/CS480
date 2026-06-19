@@ -1,0 +1,36 @@
+Course: CS 480-01, Summer 2026
+Instructor: Guy Leonard
+Assignment Information: Programming Assignment #2, Experimental Shell
+
+Team Members:
+- Daynelle Lorin Sadangsal (cssc3154)
+- Sophia Phung (cssc3147)
+
+Edoras Account Used: ___
+
+FileName: README
+
+List of all Project Files Included:
+main.cpp
+command.cpp
+exec.cpp
+xsh.h
+Makefile
+README
+
+Compile instructions:
+___
+
+Operating instructions:
+___
+
+List/description of novel/significant design decisions:
+___
+Description of any extra features/algorithms/functionality you included which were not required:
+___
+
+Description of all known deficiencies or bugs:
+___
+
+Lessons Learned:
+___
