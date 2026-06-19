@@ -33,20 +33,20 @@ Operating instructions:
 - To exit shell, type: exit
 
 Valid test commands:
-- ls: tests running one command with no argument
-- ls -la: tests running one command with one argument
-- ls | sort: tests one pipe
-- ls -la | sort -fi: tests one pipe with arguments
-- ls -la | sort -fi | grep .bashrc: tests multiple pipes
-- /usr/bin/echo printme: tests full executable path with one argument
-- exit: tests built-in exit command
+- ls                                    : tests running one command with no argument
+- ls -la                                : tests running one command with one argument
+- ls | sort                             : tests one pipe
+- ls -la | sort -fi                     : tests one pipe with arguments
+- ls -la | sort -fi | grep .bashrc      : tests multiple pipes
+- /usr/bin/echo printme                 : tests full executable path with one argument
+- exit                                  : tests built-in exit command
 
 Invalid test commands:
-- ls -la -h: rejects more than one argument
-- ls |: rejects a missing command after a pipe
-- | sort: rejects a missing command before a pipe
-- ls | sort -fi extra: rejects more than one argument in a piped command
-- exit now: rejects invalid exit format
+- ls -la -h                             : rejects more than one argument
+- ls |                                  : rejects a missing command after a pipe
+- | sort                                : rejects a missing command before a pipe
+- ls | sort -fi extra                   : rejects more than one argument in a piped command
+- exit now                              : rejects invalid exit format
 
 List/description of novel/significant design decisions:
 - main.cpp C++ file for the main shell loop of the program
@@ -64,8 +64,9 @@ Description of all known deficiencies or bugs:
 - The shell only supports the specific valid commands required by the assignment. Any invalid commands are given an error message.
 
 Division of Work:
--
--
+- used agile/pair programming, and switching of driver/navigator roles.
+- Driver: writes, formats, and types out the code.
+- Navigator: reviews each line of code, looking for cases and flaws.
 
 Lessons Learned:
 - We learned how a basic shell reads user commands and runs programs.
