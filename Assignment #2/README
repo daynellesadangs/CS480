@@ -6,7 +6,7 @@ Team Members:
 - Daynelle Lorin Sadangsal (cssc3154)
 - Sophia Phung (cssc3147)
 
-Edoras Account Used: ___
+Edoras Account Used: cssc____
 
 FileName: README
 
@@ -19,18 +19,56 @@ Makefile
 README
 
 Compile instructions:
-___
+To compile manually, run: g++ -Wall -Wextra -std=c++17 -o xsh main.cpp command.cpp exec.cpp
+or, use Makefile:
+    - In terminal, cd to directory containing Makefile, in this case, a2: cd ~/a2
+    - To clean Makefile, run: make clean
+    - To run Makefile, run: make
 
 Operating instructions:
-___
+- Ensure you are in the directory containing all of your files, in this case, a2
+- To run program, run: ./xsh
+- The program will display a prompt using the current username, such as: cssc3154%
+- To test, type a valid command
+- To exit shell, type: exit
+
+Valid test commands:
+- ls: tests running one command with no argument
+- ls -la: tests running one command with one argument
+- ls | sort: tests one pipe
+- ls -la | sort -fi: tests one pipe with arguments
+- ls -la | sort -fi | grep .bashrc: tests multiple pipes
+- /usr/bin/echo printme: tests full executable path with one argument
+- exit: tests built-in exit command
+
+Invalid test commands:
+- ls -la -h: rejects more than one argument
+- ls |: rejects a missing command after a pipe
+- | sort: rejects a missing command before a pipe
+- ls | sort -fi extra: rejects more than one argument in a piped command
+- exit now: rejects invalid exit format
 
 List/description of novel/significant design decisions:
-___
+- main.cpp C++ file for the main shell loop of the program
+- command.cpp C++ file for creating prompt, parsing user input, and checking valid commands
+- exec.cpp C++ file for creating child processes, executing commands, and handling pipes
+- xsh.h Header file to declare ParsedCommand struct
+- Makefile to compile program and create executable xsh
+- README file to instruct use of program
+- exec.cpp uses fork(), execvp(), pipe(), dup2(), close(), and waitpid().
+
 Description of any extra features/algorithms/functionality you included which were not required:
-___
+- No additional features were included.
 
 Description of all known deficiencies or bugs:
-___
+- The shell only supports the specific valid commands required by the assignment. Any invalid commands are given an error message.
+
+Division of Work:
+-
+-
 
 Lessons Learned:
-___
+- We learned how a basic shell reads user commands and runs programs.
+- We learned how fork() creates a child process and execvp() runs a new program inside that child process.
+- We learned how pipe() and dup2() connect commands so the output of a command becomes the input of another.
+- We learned how waitpid() lets the parent wait for child processes to finish before prompting again.

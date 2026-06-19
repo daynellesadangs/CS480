@@ -25,7 +25,7 @@ int main(){
             return 0;
         }
         if (!command.isValid){
-            std::cerr << "Invalid command or input." << std::endl;
+            std::cerr << "Invalid command/input." << std::endl;
         }
         else if (command.hasPipe){
             executePipeCommands(command.commands);
@@ -34,6 +34,7 @@ int main(){
             executeSingleCommand(command.commands[0]);
         }
     }
+
     std::cout << std::endl;
     return 0;
 }
