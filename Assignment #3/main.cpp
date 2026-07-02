@@ -68,7 +68,7 @@ int sstf(vector<int> requests, int start) {
             }
         }
 
-        // moves to the cloest request
+        // moves to the closest request
         totalDistance += closestDistance;
         current = requests[closestIndex];
 
