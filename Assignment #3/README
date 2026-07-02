@@ -1,0 +1,35 @@
+Course: CS 480-01, Summer 2026
+Instructor: Guy Leonard
+Assignment Information: Programming Assignment #3, Disk Arm Scheduling Algorithms
+
+Team Members:
+- Daynelle Lorin Sadangsal (cssc3154)
+- Sophia Phung (cssc3147)
+
+Edoras Account Used: cssc3147
+
+FileName: README
+
+List of all Project Files Included:
+main.cpp
+Makefile
+README
+
+Compile instructions:
+To compile manually, run: ****
+or, use Makefile:
+    - In terminal, cd to directory containing Makefile, in this case, a3: cd ~/a3
+    - To clean Makefile, run: make clean
+    - To run Makefile, run: make
+
+Operating instructions:
+Ensure you are in the directory containing all of your files, in this case, a3
+- To run program, run: ./simarm <sequence_length>
+
+List/description of novel/significant design decisions:
+
+Description of any extra features/algorithms/functionality you included which were not required:
+
+Description of all known deficiencies or bugs:
+
+Lessons Learned:
