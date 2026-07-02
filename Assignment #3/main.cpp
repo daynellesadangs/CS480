@@ -22,22 +22,19 @@ using namespace std;
 const int MIN_CYLINDER = 0;
 const int MAX_CYLINDER = 999;
 
-/*
- * Generate a random sequence of disk cylinder requests.
- */
+
+// returns a random list of disk cylinder requests
 vector<int> generateRequests(int length) {
     vector<int> requests;
 
     for (int i = 0; i < length; i++) {
         requests.push_back(rand() % 1000);
     }
-
     return requests;
 }
 
-/*
- * First-Come, First-Served disk scheduling.
- */
+// FCFS Algorithm
+// goes through the requests in the order they appear
 int fcfs(const vector<int>& requests, int start) {
     int totalDistance = 0;
     int current = start;
@@ -50,17 +47,18 @@ int fcfs(const vector<int>& requests, int start) {
     return totalDistance;
 }
 
-/*
- * Shortest Seek Time First disk scheduling.
- */
+// SSTF Algorithm
+// chooses the request closest to the current position
 int sstf(vector<int> requests, int start) {
     int totalDistance = 0;
     int current = start;
 
+    // keeps running until every request is handled
     while (!requests.empty()) {
         int closestIndex = 0;
         int closestDistance = abs(requests[0] - current);
 
+        // looks for closest request
         for (int i = 1; i < (int)requests.size(); i++) {
             int distance = abs(requests[i] - current);
 
@@ -70,26 +68,30 @@ int sstf(vector<int> requests, int start) {
             }
         }
 
+        // moves to the cloest request
         totalDistance += closestDistance;
         current = requests[closestIndex];
+
+        // removes the completed request from list
         requests.erase(requests.begin() + closestIndex);
     }
 
     return totalDistance;
 }
 
-/*
- * SCAN disk scheduling.
- */
+// SCAN Algorithm
+// moves right, then turns around and moves left
 int scan(vector<int> requests, int start) {
     int totalDistance = 0;
     int current = start;
 
+    // sorts the requests in order
     sort(requests.begin(), requests.end());
 
     vector<int> left;
     vector<int> right;
 
+    // splits requests based on the starting position
     for (int request : requests) {
         if (request < start) {
             left.push_back(request);
@@ -98,15 +100,18 @@ int scan(vector<int> requests, int start) {
         }
     }
 
+    // handles all reqeusts to the right first
     for (int request : right) {
         totalDistance += abs(request - current);
         current = request;
     }
 
+    // if there are requests on the left, it goes to the end first
     if (!left.empty()) {
         totalDistance += abs(MAX_CYLINDER - current);
         current = MAX_CYLINDER;
 
+        // then moves left and handles those requests
         for (int i = (int)left.size() - 1; i >= 0; i--) {
             totalDistance += abs(left[i] - current);
             current = left[i];
@@ -117,6 +122,8 @@ int scan(vector<int> requests, int start) {
 }
 
 int main(int argc, char* argv[]) {
+
+    // checks length of user's sequence
     if (argc != 2) {
         cerr << "Usage: simarm <sequence_length>" << endl;
         return 1;
@@ -124,22 +131,28 @@ int main(int argc, char* argv[]) {
 
     int length = atoi(argv[1]);
 
+    // makes sure input is valid
     if (length <= 0) {
         cerr << "Error: sequence length must be positive." << endl;
         return 1;
     }
 
+    // starts random number generator
     srand(time(NULL));
 
     int startCylinder = 500;
+
+    // creates random request list
     vector<int> requests = generateRequests(length);
 
+    // prints request list
     cout << "Generated sequence:" << endl;
     for (int request : requests) {
         cout << request << " ";
     }
     cout << endl << endl;
 
+    // prints the results of each algorithm
     cout << "Starting cylinder: " << startCylinder << endl;
     cout << "FCFS total distance: " << fcfs(requests, startCylinder) << endl;
     cout << "SSTF total distance: " << sstf(requests, startCylinder) << endl;
