@@ -13,15 +13,15 @@
 CC = g++
 CFLAGS = -Wall -Wextra -std=c++11
 
-TARGET = simarm
+EXEC = simarm
 SRC = main.cpp
 
-all: $(TARGET)
+all: $(EXEC)
 
-$(TARGET): $(SRC)
-	$(CC) $(CFLAGS) -o $(TARGET) $(SRC)
+$(EXEC): $(SRC)
+	$(CC) $(CFLAGS) -o $(EXEC) $(SRC)
 
 clean:
-	rm -f $(TARGET)
+	rm -f $(EXEC)
 
 #######################[ EOF: Makefile ]###################

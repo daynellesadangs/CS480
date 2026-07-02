@@ -28,7 +28,7 @@ Ensure you are in the directory containing all of your files, in this case, a3
 
 List/description of novel/significant design decisions:
 - main.cpp C++ file containing all three FCFS, SSTF, and SCAN algorithms and printed output
-- Makefile to compile program
+- Makefile to compile program create executable simarm
 - README file to instruct use of program
 
 Description of any extra features/algorithms/functionality you included which were not required:
