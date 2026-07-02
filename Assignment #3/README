@@ -16,7 +16,7 @@ Makefile
 README
 
 Compile instructions:
-To compile manually, run: ****
+To compile manually, run: g++ -Wall -Wextra -std=c++11 -o simarm main.cpp
 or, use Makefile:
     - In terminal, cd to directory containing Makefile, in this case, a3: cd ~/a3
     - To clean Makefile, run: make clean
@@ -27,9 +27,18 @@ Ensure you are in the directory containing all of your files, in this case, a3
 - To run program, run: ./simarm <sequence_length>
 
 List/description of novel/significant design decisions:
+- main.cpp C++ file containing all three FCFS, SSTF, and SCAN algorithms and printed output
+- Makefile to compile program
+- README file to instruct use of program
 
 Description of any extra features/algorithms/functionality you included which were not required:
+- There were no additional features implemented besides handling errors when necessary (e.g. checking for sequence length and ensuring it must be positive).
 
 Description of all known deficiencies or bugs:
+- Initially there were issues of the SSTF and SCAN algorithms producing the same total distance even for a randomly generated sequence
+- However, it was recognized that the starting cylinder must be a value greater than 0 otherwise both algorithms may scan the sequence from smallest to largest majority of the time.
 
 Lessons Learned:
+- The differences between different Disk Arm Scheduling algorithms and how FCFS, SSTF, and SCAN each service disk requests differently given those strategies affect the total disk arm movement.
+- Learned to verify algorithm correctness by testing with different starting cylinder positions and random request sequences, and to use compiler warnings and output comparisons to identify logic errors.
+
