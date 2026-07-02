@@ -10,8 +10,8 @@
 # FileName: Makefile
 ###########################################################
 
-CXX = g++
-CXXFLAGS = -Wall -Wextra -std=c++11
+CC = g++
+CFLAGS = -Wall -Wextra -std=c++11
 
 TARGET = simarm
 SRC = main.cpp
@@ -19,7 +19,7 @@ SRC = main.cpp
 all: $(TARGET)
 
 $(TARGET): $(SRC)
-	$(CXX) $(CXXFLAGS) -o $(TARGET) $(SRC)
+	$(CC) $(CFLAGS) -o $(TARGET) $(SRC)
 
 clean:
 	rm -f $(TARGET)

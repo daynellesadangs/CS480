@@ -80,7 +80,6 @@ int sstf(vector<int> requests, int start) {
 
 /*
  * SCAN disk scheduling.
- * This version moves upward first, then reverses direction.
  */
 int scan(vector<int> requests, int start) {
     int totalDistance = 0;
